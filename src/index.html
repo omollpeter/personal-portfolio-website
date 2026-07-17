@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peter Omollo</title>
+
+  <!-- <link rel="icon" type="image/svg" href="./assets/images/LogomarkFullcolor.svg"> -->
+
+
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Livvic:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,900&display=swap"
+    rel="stylesheet">
+
+  <!-- Font awesome icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <!-- Swiper CSS v11 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- Swiper JS v11 -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    /* Logo loader */
+    .loader-overlay {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--bg);
+      z-index: 9999;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+
+    .loader {
+      height: 27px;
+      aspect-ratio: 5;
+      --c: var(--gold) 90deg, #0000 0;
+      background:
+        conic-gradient(from 135deg at top, var(--c)),
+        conic-gradient(from -45deg at bottom, var(--c)) 12.5% 100%;
+      background-size: 20% 50%;
+      background-repeat: repeat-x;
+      clip-path: inset(0 60% 0 0);
+      animation: loaderSlide 0.8s infinite linear alternate;
+    }
+
+    @keyframes loaderSlide {
+      to {
+        clip-path: inset(0 0 0 60%);
+      }
+    }
+
+    .loader-overlay.fade-out {
+      opacity: 0;
+      visibility: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Loader -->
+  <!-- <div class="loader-overlay" id="loader">
+    <div class="loader"></div>
+  </div> -->
+
+  <!-- Navbar will be injected here -->
+  <!-- <div id="navbar-container"></div> -->
+
+
+  <div class="global-grid"></div>
+  <div id="custom-cursor"></div>
+  <div id="cursor-ring"></div>
+  <div id="cursor-shadow"></div>
+
+  <img src="./assets/images/peter-1.png" class="hero-photo-proxy" id="heroPhotoProxy" alt="">
+
+  <div class="hero-scroll-arrow" id="heroScrollArrow">
+    <div class="hero-scroll-icon"><i class="fa-solid fa-arrow-down"></i></div>
+    <span>Scroll</span>
+  </div>
+
+  <section class="hero-section" id="heroSection">
+    <nav class="hero-nav">
+      <div class="hero-nav-brand">
+        <span class="hero-nav-name">Peter Omollo</span>
+        <span class="hero-nav-title">Frontend Engineer × UI/UX</span>
+      </div>
+      <div class="hero-nav-links">
+        <a href="https://linkedin.com/in/peter-omollo" class="hero-nav-link" target="_blank" rel="noopener noreferrer">
+          <span class="hero-nav-link-text">LinkedIn</span>
+          <i class="fa-brands fa-linkedin hero-nav-link-icon"></i>
+        </a>
+        <a href="https://x.com/OchiengOmollo41" class="hero-nav-link" target="_blank" rel="noopener noreferrer">
+          <span class="hero-nav-link-text">Twitter/X</span>
+          <i class="fa-brands fa-x-twitter hero-nav-link-icon"></i>
+        </a>
+        <div class="hero-status">
+          <div class="hero-status-dot"></div>
+          Available for work
+        </div>
+      </div>
+    </nav>
+
+    <div class="hero-center">
+      <div class="hero-headline-wrapper">
+        <p class="hero-headline-intro">Hi there, I'm</p>
+        <h1 class="hero-headline">
+          <span class="hero-headline-row">Peter Omollo</span>
+          <span class="hero-typed-row">
+            <span id="heroTypedWord" class="hero-typed-word">Frontend</span><span class="hero-typed-cursor"></span>
+          </span>
+          <span class="hero-role-suffix-wrap">
+            <span class="hero-role-suffix" id="heroRoleSuffix">Engineer</span>
+          </span>
+        </h1>
+        <div class="hero-photo-anchor" id="heroPhotoAnchor">
+          <img src="./assets/images/peter-1.png" class="hero-photo" id="heroPhotoReal" alt="Peter Omollo">
+          <div class="hero-photo-ring" id="heroPhotoRing"></div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="hero-footer">
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-number">3+</span>
+          <span class="hero-stat-label">Years of<br>Experience</span>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat">
+          <i class="fa-solid fa-layer-group hero-stat-icon"></i>
+          <span class="hero-stat-label">UI/UX &<br>Frontend</span>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat">
+          <i class="fa-solid fa-code hero-stat-icon"></i>
+          <span class="hero-stat-label">Web &<br>Digital</span>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <section class="about-section" id="aboutSection">
+
+    <div class="about-body-layer" id="aboutBodyLayer">
+      <p class="about-body" id="aboutBodyInner">
+        I'm a Frontend Engineer and UI/UX Designer based in Nairobi, Kenya.
+        I build interfaces that don't just look good, but also feel right.
+        With 3+ years turning complex problems into clean, intuitive digital products,
+        I sit at the intersection of design and code, obsessing over every pixel
+        and every interaction timing.
+      </p>
+    </div>
+
+    <div class="about-image-layer" id="aboutImageLayer">
+      <img src="./assets/images/peter-1.png" class="about-photo-placeholder" id="aboutPhotoPlaceholder"
+        alt="Peter Omollo">
+    </div>
+
+    <div class="about-strip-layer">
+      <div class="about-strip">
+        <ul class="about-strip-track">
+          <li>Figma</li>
+          <li>UI Design</li>
+          <li>HTML</li>
+          <li>Web Development</li>
+          <li>CSS</li>
+          <li>Branding</li>
+          <li>JavaScript</li>
+          <li>Motion Design</li>
+          <li>React</li>
+          <li>UX Research</li>
+          <li>TypeScript</li>
+          <li>Design Systems</li>
+          <li>Node.js</li>
+          <li>Prototyping</li>
+          <li>GSAP</li>
+          <li>Art Direction</li>
+          <li>Webflow</li>
+          <li>Digital Strategy</li>
+          <li>Tailwind</li>
+          <li>Interaction Design</li>
+          <li>Figma</li>
+          <li>UI Design</li>
+          <li>HTML</li>
+          <li>Web Development</li>
+          <li>CSS</li>
+          <li>Branding</li>
+          <li>JavaScript</li>
+          <li>Motion Design</li>
+          <li>React</li>
+          <li>UX Research</li>
+          <li>TypeScript</li>
+          <li>Design Systems</li>
+          <li>Node.js</li>
+          <li>Prototyping</li>
+          <li>GSAP</li>
+          <li>Art Direction</li>
+          <li>Webflow</li>
+          <li>Digital Strategy</li>
+          <li>Tailwind</li>
+          <li>Interaction Design</li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="prj-section" id="prjSection">
+
+    <div class="prj-progress" id="prjProgress"></div>
+    <div class="prj-scene">
+      <div class="prj-book-tilt">
+        <div class="prj-book" id="prjBook">
+
+          <button class="prj-btn" id="btnPrev" disabled>
+            <i class="fa-solid fa-arrow-left"></i>&nbsp;Previous
+          </button>
+          <button class="prj-btn" id="btnNext">
+            Next&nbsp;<i class="fa-solid fa-arrow-right"></i>
+          </button>
+
+          <div class="prj-spine"></div>
+
+          <div id="flipbook">
+            <div class="hard">
+              <div class="prj-spread-page">
+                <div class="prj-leaf-left prj-leaf-left--cover-front">
+                  <!-- <div class="prj-cover-icon"><i class="fa-solid fa-layer-group"></i></div>
+                  <div class="prj-cover-eyebrow">Portfolio</div> -->
+                  <div class="prj-cover-title"><span>Sample</span><br>Projects</div>
+                  <!-- <div class="prj-cover-rule"></div> -->
+                </div>
+                <div class="prj-leaf-right prj-leaf-right--cover-front"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="prj-spread-page">
+                <div class="prj-leaf-left">
+                  <div class="prj-left-inner">
+                    <div class="prj-title">Axmi Digitech Solutions</div>
+
+                  </div>
+                  <span class="prj-pg-num prj-pg-num--l">01</span>
+                </div>
+                <div class="prj-leaf-right">
+                  <img class="prj-right-image" src="./assets/images/axmi.jpeg" alt="Axmi Digitech Solutions">
+                  <div class="prj-right-overlay"></div>
+                  <a href="https://axmidigitech.com" target="_blank" rel="noopener noreferrer" class="prj-link">View
+                    Project <i class="fa-solid fa-arrow-right"></i></a>
+                  <span class="prj-pg-num prj-pg-num--r prj-pg-num--r-photo">02</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="prj-spread-page">
+                <div class="prj-leaf-left">
+                  <div class="prj-left-inner">
+                    <div class="prj-title">VelonixPay</div>
+
+                  </div>
+                  <span class="prj-pg-num prj-pg-num--l">03</span>
+                </div>
+                <div class="prj-leaf-right">
+                  <img class="prj-right-image" src="./assets/images/velonix.jpeg" alt="VelonixPay">
+                  <div class="prj-right-overlay"></div>
+                  <a href="https://payvelonix.com" target="_blank" rel="noopener noreferrer" class="prj-link">View
+                    Project <i class="fa-solid fa-arrow-right"></i></a>
+                  <span class="prj-pg-num prj-pg-num--r prj-pg-num--r-photo">04</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="prj-spread-page">
+                <div class="prj-leaf-left">
+                  <div class="prj-left-inner">
+                    <div class="prj-title">Nzuri Care</div>
+
+                  </div>
+                  <span class="prj-pg-num prj-pg-num--l">05</span>
+                </div>
+                <div class="prj-leaf-right">
+                  <img class="prj-right-image" src="./assets/images/nzuri.jpeg" alt="Nzuri Care">
+                  <div class="prj-right-overlay"></div>
+                  <a href="https://nzuricare.com" target="_blank" rel="noopener noreferrer" class="prj-link">View
+                    Project <i class="fa-solid fa-arrow-right"></i></a>
+                  <span class="prj-pg-num prj-pg-num--r prj-pg-num--r-photo">06</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="prj-spread-page">
+                <div class="prj-leaf-left">
+                  <div class="prj-left-inner">
+                    <div class="prj-title">Uroyien Clinics</div>
+
+                  </div>
+                  <span class="prj-pg-num prj-pg-num--l">07</span>
+                </div>
+                <div class="prj-leaf-right">
+                  <img class="prj-right-image" src="./assets/images/uroyien.jpeg" alt="Uroyien Clinics">
+                  <div class="prj-right-overlay"></div>
+                  <a href="https://uroyien.com" target="_blank" rel="noopener noreferrer" class="prj-link">View Project
+                    <i class="fa-solid fa-arrow-right"></i></a>
+                  <span class="prj-pg-num prj-pg-num--r prj-pg-num--r-photo">08</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="prj-spread-page">
+                <div class="prj-leaf-left">
+                  <div class="prj-left-inner">
+                    <div class="prj-title">Cardojo Imports</div>
+
+                  </div>
+                  <span class="prj-pg-num prj-pg-num--l">09</span>
+                </div>
+                <div class="prj-leaf-right">
+                  <img class="prj-right-image" src="./assets/images/cardojo.jpeg" alt="Cardojo Imports">
+                  <div class="prj-right-overlay"></div>
+                  <a href="https://cardojoimports.com" target="_blank" rel="noopener noreferrer" class="prj-link">View
+                    Project <i class="fa-solid fa-arrow-right"></i></a>
+                  <span class="prj-pg-num prj-pg-num--r prj-pg-num--r-photo">10</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="prj-spread-page">
+                <div class="prj-leaf-left">
+                  <div class="prj-left-inner">
+                    <div class="prj-title">Centiwise</div>
+
+                  </div>
+                  <span class="prj-pg-num prj-pg-num--l">11</span>
+                </div>
+                <div class="prj-leaf-right">
+                  <img class="prj-right-image" src="./assets/images/centiwise.jpeg" alt="Centiwise">
+                  <div class="prj-right-overlay"></div>
+                  <a href="https://centiwise.url.ke" target="_blank" rel="noopener noreferrer" class="prj-link">View
+                    Project <i class="fa-solid fa-arrow-right"></i></a>
+                  <span class="prj-pg-num prj-pg-num--r prj-pg-num--r-photo">12</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="prj-spread-page">
+                <div class="prj-leaf-left">
+                  <div class="prj-left-inner">
+                    <div class="prj-title">Dynovex</div>
+
+                  </div>
+                  <span class="prj-pg-num prj-pg-num--l">13</span>
+                </div>
+                <div class="prj-leaf-right">
+                  <img class="prj-right-image" src="./assets/images/dynovex.jpeg" alt="Dynovex">
+                  <div class="prj-right-overlay"></div>
+                  <a href="https://dynovex.tech" target="_blank" rel="noopener noreferrer" class="prj-link">View Project
+                    <i class="fa-solid fa-arrow-right"></i></a>
+                  <span class="prj-pg-num prj-pg-num--r prj-pg-num--r-photo">14</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="prj-spread-page">
+                <div class="prj-leaf-left">
+                  <div class="prj-left-inner">
+                    <div class="prj-title">Euphorix</div>
+
+                  </div>
+                  <span class="prj-pg-num prj-pg-num--l">15</span>
+                </div>
+                <div class="prj-leaf-right">
+                  <img class="prj-right-image" src="./assets/images/euphorix.jpeg" alt="Euphorix">
+                  <div class="prj-right-overlay"></div>
+                  <a href="https://euphorix.io" target="_blank" rel="noopener noreferrer" class="prj-link">View Project
+                    <i class="fa-solid fa-arrow-right"></i></a>
+                  <span class="prj-pg-num prj-pg-num--r prj-pg-num--r-photo">16</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hard">
+              <div class="prj-spread-page">
+                <div class="prj-leaf-left prj-leaf-left--cover-back"></div>
+                <div class="prj-leaf-right prj-leaf-right--cover-back">
+                  <div class="prj-back-icon"><i class="fa-solid fa-bookmark"></i></div>
+                  <div class="prj-back-title">End of<br>Sample Projects</div>
+                  <!-- <div class="prj-back-rule"></div>
+                  <div class="prj-back-sub">Peter Omollo · Frontend Engineer</div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="prj-book-shadow"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact section -->
+  <section class="con-section" id="conSection">
+    <div class="con-hero">
+      <h1 class="con-headline" id="conHeadline">GET IN<br>TOUCH</h1>
+      <img src="./assets/images/peter-1.png" class="con-headline-img" id="conHeroImg" alt="">
+    </div>
+
+    <div class="con-body">
+      <div class="con-col">
+        <div class="con-divider"></div>
+
+        <div class="con-block" id="conBlock0">
+          <p class="con-block-label">Email</p>
+          <a href="mailto:omollpeter@gmail.com" class="con-email-link">omollpeter@gmail.com</a>
+        </div>
+
+        <div class="con-block" id="conBlock1">
+          <p class="con-blurb">
+            Open to freelance projects, full-time roles, and creative collaborations. If you have an idea worth
+            building, let's talk.
+          </p>
+        </div>
+
+        <div class="con-block" id="conBlock2">
+          <a href="mailto:omollpeter@gmail.com" class="con-cta-link">
+            Start a project <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="con-col">
+        <div class="con-divider"></div>
+
+        <div class="con-block" id="conBlock3">
+          <p class="con-block-label">Phone</p>
+          <div class="con-phones">
+            <a href="tel:+254717912041" class="con-phone">+254 717 912 041</a>
+            <a href="tel:+254117343375" class="con-phone">+254 117 343 375</a>
+          </div>
+        </div>
+
+        <div class="con-block" id="conBlock4">
+          <p class="con-block-label">Based in</p>
+          <p class="con-location-name">Nairobi, Kenya</p>
+          <p class="con-location-desc">Available for remote work worldwide and on-site engagements across East Africa.
+          </p>
+        </div>
+
+        <div class="con-block" id="conBlock5">
+          <p class="con-block-label">Response time</p>
+          <p class="con-location-name">Within 10 minutes</p>
+          <p class="con-location-desc">Monday to Saturday. Urgent inquiries welcome via phone or WhatsApp.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer class="con-footer">
+      <div class="con-socials">
+        <a href="https://facebook.com/peter.omollo.353/" class="con-social-link" target="_blank"
+          rel="noopener noreferrer">Facebook <i class="bi bi-arrow-up-right"></i></a>
+        <a href="https://www.instagram.com/omollpeter?igsh=ajQxOW0xOThsb3F2" class="con-social-link" target="_blank"
+          rel="noopener noreferrer">Instagram <i class="bi bi-arrow-up-right"></i></a>
+        <a href="https://github.com/omollpeter" class="con-social-link" target="_blank" rel="noopener noreferrer">GitHub
+          <i class="bi bi-arrow-up-right"></i></a>
+        <a href="https://linkedin.com/in/peter-omollo" class="con-social-link" target="_blank"
+          rel="noopener noreferrer">LinkedIn <i class="bi bi-arrow-up-right"></i></a>
+        <a href="https://x.com/OchiengOmollo41" class="con-social-link" target="_blank"
+          rel="noopener noreferrer">Twitter/X
+          <i class="bi bi-arrow-up-right"></i></a>
+      </div>
+      <div class="con-copyright" id="conCopyright">
+        <div class="con-copyright-circle">©</div>
+        <span class="con-copyright-year">2026</span>
+      </div>
+    </footer>
+
+  </section>
+
+  <!-- Footer will be injected here -->
+  <!-- <div id="footer-container"></div> -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"></script>
+</body>
+
+</html>

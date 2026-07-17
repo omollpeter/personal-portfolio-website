@@ -1,0 +1,164 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/* ─── APFEL GROTEZK FONT FACES ─── */
+
+@font-face {
+	font-family: "ApfelGrotezk";
+	src:
+		url("../fonts/apfel-grotezk-main/fonts/ApfelGrotezk-Regular.woff2")
+			format("woff2"),
+		url("../fonts/apfel-grotezk-main/fonts/ApfelGrotezk-Regular.woff")
+			format("woff"),
+		url("../fonts/apfel-grotezk-main/fonts/ApfelGrotezk-Regular.otf")
+			format("opentype");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "ApfelGrotezk";
+	src:
+		url("../fonts/apfel-grotezk-main/fonts/ApfelGrotezk-Mittel.woff2")
+			format("woff2"),
+		url("../fonts/apfel-grotezk-main/fonts/ApfelGrotezk-Mittel.woff")
+			format("woff"),
+		url("../fonts/apfel-grotezk-main/fonts/ApfelGrotezk-Mittel.otf")
+			format("opentype");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "ApfelGrotezk";
+	src:
+		url("../fonts/apfel-grotezk-main/fonts/ApfelGrotezk-Satt.woff2")
+			format("woff2"),
+		url("../fonts/apfel-grotezk-main/fonts/ApfelGrotezk-Satt.woff")
+			format("woff"),
+		url("../fonts/apfel-grotezk-main/fonts/ApfelGrotezk-Satt.otf")
+			format("opentype");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "ApfelGrotezk";
+	src:
+		url("../fonts/apfel-grotezk-main/fonts/ApfelGrotezk-Fett.woff2")
+			format("woff2"),
+		url("../fonts/apfel-grotezk-main/fonts/ApfelGrotezk-Fett.woff")
+			format("woff"),
+		url("../fonts/apfel-grotezk-main/fonts/ApfelGrotezk-Fett.otf")
+			format("opentype");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "ApfelGrotezk";
+	src:
+		url("../fonts/apfel-grotezk-main/fonts/ApfelGrotezk-Brukt.woff2")
+			format("woff2"),
+		url("../fonts/apfel-grotezk-main/fonts/ApfelGrotezk-Brukt.woff")
+			format("woff"),
+		url("../fonts/apfel-grotezk-main/fonts/ApfelGrotezk-Brukt.otf")
+			format("opentype");
+	font-weight: 800;
+	font-style: normal;
+	font-display: swap;
+}
+
+:root {
+	--bg: #000;
+	--fg: #fff;
+	--fg-dim: rgba(255, 255, 255, 0.8);
+	--fg-dimmer: rgba(255, 255, 255, 0.3);
+	--grid-color: rgba(255, 255, 255, 0.055);
+	--cursor-size: 12px;
+	--accent-a: #a78bfa;
+	--accent-b: #60a5fa;
+	--page-l: #111213;
+	--page-r: #0f1011;
+	--con-pad-x: 48px;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background: var(--bg);
+	color: var(--fg);
+	font-family: "ApfelGrotezk", sans-serif;
+	cursor: none;
+	overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.global-grid {
+	position: fixed;
+	inset: 0;
+	background-image:
+		linear-gradient(var(--grid-color) 1px, transparent 1px),
+		linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+	background-size: 10px 10px;
+	z-index: 0;
+	pointer-events: none;
+}
+
+#custom-cursor {
+	position: fixed;
+	width: var(--cursor-size);
+	height: var(--cursor-size);
+	background: var(--fg);
+	border-radius: 50%;
+	pointer-events: none;
+	z-index: 9999;
+	transform: translate(-50%, -50%);
+	transition:
+		width 0.25s ease,
+		height 0.25s ease,
+		opacity 0.25s ease;
+	mix-blend-mode: difference;
+}
+
+#cursor-ring {
+	position: fixed;
+	width: 36px;
+	height: 36px;
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	border-radius: 50%;
+	pointer-events: none;
+	z-index: 9998;
+	transform: translate(-50%, -50%);
+}
+
+#cursor-shadow {
+	position: fixed;
+	width: 90px;
+	height: 90px;
+	border-radius: 50%;
+	pointer-events: none;
+	z-index: 9996;
+	transform: translate(-50%, -50%);
+	background: radial-gradient(
+		circle,
+		rgba(167, 139, 250, 0.2) 0%,
+		rgba(96, 165, 250, 0.08) 50%,
+		transparent 75%
+	);
+	filter: blur(10px);
+}

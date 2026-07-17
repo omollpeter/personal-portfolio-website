@@ -1,0 +1,7 @@
+test*.html
+node_modules/
+.vscode/
+/dist/
+/public/
+.prettierrc
+package-lock.json

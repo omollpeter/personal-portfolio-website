@@ -1,0 +1,537 @@
+.prj-section {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	z-index: 1;
+	overflow: hidden;
+}
+
+.prj-scene {
+	perspective: 2600px;
+	perspective-origin: 50% 46%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	flex: 1;
+}
+
+.prj-book-tilt {
+	transform: rotate(-3.5deg) translateY(6px);
+	transform-origin: 50% 60%;
+	position: relative;
+	display: inline-block;
+}
+
+.prj-book {
+	position: relative;
+	width: min(820px, 84vw);
+	height: min(520px, 54vw);
+	min-width: 300px;
+	min-height: 190px;
+	opacity: 0;
+	transition: opacity 0.4s ease;
+}
+
+.prj-book.is-ready {
+	opacity: 1;
+}
+
+#flipbook {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+#flipbook > div {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+#flipbook .page-wrapper {
+	overflow: hidden;
+}
+
+.prj-spread-page {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	position: relative;
+	overflow: hidden;
+}
+
+.prj-leaf-left {
+	width: 50%;
+	height: 100%;
+	background: var(--page-l);
+	border: 1px solid rgba(255, 255, 255, 0.07);
+	border-right: none;
+	border-radius: 4px 0 0 4px;
+	box-shadow: inset -8px 0 20px rgba(0, 0, 0, 0.45);
+	position: relative;
+}
+
+.prj-leaf-right {
+	width: 50%;
+	height: 100%;
+	background: var(--page-r);
+	border: 1px solid rgba(255, 255, 255, 0.07);
+	border-left: 1px solid rgba(255, 255, 255, 0.04);
+	border-radius: 0 4px 4px 0;
+	box-shadow: inset 8px 0 20px rgba(0, 0, 0, 0.45);
+	position: relative;
+	overflow: hidden;
+}
+
+.prj-leaf-left--cover-front {
+	background: linear-gradient(148deg, #1d1d21 0%, #0b0b0d 100%);
+	border-color: rgba(255, 255, 255, 0.1);
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	gap: 10px;
+	padding: clamp(18px, 3.2vw, 36px);
+}
+
+.prj-leaf-left--cover-front::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background:
+		radial-gradient(
+			ellipse at 30% 25%,
+			rgba(167, 139, 250, 0.07) 0%,
+			transparent 55%
+		),
+		radial-gradient(
+			ellipse at 72% 78%,
+			rgba(96, 165, 250, 0.045) 0%,
+			transparent 50%
+		);
+	pointer-events: none;
+}
+
+.prj-leaf-right--cover-front {
+	background: linear-gradient(148deg, #181819 0%, #0d0d0e 100%);
+	border-color: rgba(255, 255, 255, 0.07);
+}
+
+.prj-leaf-left--cover-back {
+	background: linear-gradient(148deg, #151517 0%, #0b0b0d 100%);
+	border-color: rgba(255, 255, 255, 0.06);
+}
+
+.prj-leaf-right--cover-back {
+	background: linear-gradient(148deg, #151517 0%, #0b0b0d 100%);
+	border-color: rgba(255, 255, 255, 0.06);
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	overflow: hidden;
+}
+
+.prj-leaf-right--cover-back::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: radial-gradient(
+		ellipse at 50% 40%,
+		rgba(167, 139, 250, 0.055) 0%,
+		transparent 60%
+	);
+	pointer-events: none;
+}
+
+.prj-spine {
+	position: absolute;
+	top: 0;
+	left: calc(50% - 10px);
+	width: 20px;
+	height: 100%;
+	background: linear-gradient(
+		90deg,
+		#1e1e1e 0%,
+		#2a2a2a 30%,
+		#111 60%,
+		#1a1a1a 100%
+	);
+	z-index: 200;
+	pointer-events: none;
+	box-shadow:
+		inset 2px 0 5px rgba(255, 255, 255, 0.04),
+		inset -2px 0 8px rgba(0, 0, 0, 0.9);
+}
+
+.prj-book-shadow {
+	position: absolute;
+	bottom: -24px;
+	left: 3%;
+	width: 94%;
+	height: 30px;
+	background: radial-gradient(
+		ellipse at 48% center,
+		rgba(0, 0, 0, 0.9) 0%,
+		transparent 70%
+	);
+	pointer-events: none;
+	z-index: 0;
+	transform: rotate(3.5deg);
+}
+
+.prj-btn {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	gap: 7px;
+	font-family: "Readex Pro", sans-serif;
+	font-size: 0.46rem;
+	font-weight: 400;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: rgba(0, 0, 0, 0.6);
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	background: rgba(255, 255, 255, 0.92);
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
+	padding: 7px 13px;
+	border-radius: 4px;
+	cursor: none;
+	z-index: 800;
+	transition:
+		color 0.25s,
+		border-color 0.25s,
+		background 0.25s,
+		opacity 0.35s,
+		transform 0.35s;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.prj-btn:hover:not(:disabled) {
+	color: rgba(0, 0, 0, 0.9);
+	background: #fff;
+	border-color: rgba(0, 0, 0, 0.2);
+}
+
+.prj-btn:disabled {
+	opacity: 0;
+	pointer-events: none;
+	transform: scale(0.85);
+}
+
+.prj-btn i {
+	font-size: 0.7em;
+}
+
+#btnPrev {
+	top: 10px;
+	left: 10px;
+}
+#btnNext {
+	bottom: 10px;
+	right: 10px;
+}
+
+.prj-progress {
+	position: absolute;
+	right: 20px;
+	top: 50%;
+	transform: translateY(-50%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 9px;
+	z-index: 600;
+}
+
+.prj-pdot {
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.18);
+	transition:
+		background 0.3s,
+		transform 0.3s;
+}
+
+.prj-pdot.active {
+	background: linear-gradient(135deg, var(--accent-a), var(--accent-b));
+	transform: scale(1.6);
+	box-shadow: 0 0 7px rgba(167, 139, 250, 0.5);
+}
+
+.prj-left-inner {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: clamp(12px, 2.2vw, 22px);
+	padding: clamp(18px, 3.2vw, 36px);
+	text-align: center;
+}
+
+.prj-title {
+	font-size: clamp(1.1rem, 2.8vw, 2rem);
+	font-weight: 700;
+	letter-spacing: -0.04em;
+	line-height: 1;
+	background: linear-gradient(
+		135deg,
+		#fff 0%,
+		rgba(255, 255, 255, 0.65) 100%
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+.prj-tool-icons {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: clamp(8px, 1.4vw, 14px);
+	flex-wrap: wrap;
+}
+
+.prj-tool-icons img {
+	width: clamp(15px, 3.5vw, 24px);
+	height: clamp(15px, 3.5vw, 24px);
+	object-fit: contain;
+	filter: brightness(0) invert(1) opacity(0.75);
+	transition:
+		opacity 0.2s,
+		filter 0.2s;
+}
+
+.prj-tool-icons img:hover {
+	filter: brightness(0) invert(1) opacity(1);
+}
+
+.prj-pg-num {
+	font-size: 0.42rem;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.08);
+	position: absolute;
+}
+
+.prj-pg-num--l {
+	bottom: 10px;
+	right: 14px;
+}
+.prj-pg-num--r {
+	bottom: 10px;
+	left: 14px;
+}
+
+.prj-right-image {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.prj-right-overlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(
+		to top,
+		rgba(0, 0, 0, 0.38) 0%,
+		transparent 50%
+	);
+	pointer-events: none;
+	z-index: 1;
+}
+
+.prj-link {
+	position: absolute;
+	bottom: 18px;
+	left: 14px;
+	display: inline-flex;
+	align-items: center;
+	gap: 7px;
+	font-size: clamp(0.46rem, 0.85vw, 0.58rem);
+	font-weight: 400;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	color: rgba(0, 0, 0, 0.65);
+	background: rgba(255, 255, 255, 0.92);
+	padding: 6px 12px;
+	border-radius: 4px;
+	text-decoration: none;
+	z-index: 10;
+	transition:
+		color 0.2s,
+		background 0.2s;
+}
+
+.prj-link:hover {
+	color: rgba(0, 0, 0, 0.9);
+	background: #fff;
+}
+.prj-link i {
+	font-size: 0.55em;
+}
+
+.prj-pg-num--r-photo {
+	color: rgba(255, 255, 255, 0.25);
+	z-index: 10;
+}
+
+.prj-cover-icon {
+	font-size: clamp(1.6rem, 4vw, 2.8rem);
+	background: linear-gradient(135deg, var(--accent-a), var(--accent-b));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+.prj-cover-eyebrow {
+	font-size: clamp(0.48rem, 0.88vw, 0.6rem);
+	font-weight: 300;
+	letter-spacing: 0.28em;
+	text-transform: uppercase;
+	color: var(--fg-dimmer);
+}
+
+.prj-cover-title {
+	font-size: clamp(1.4rem, 3.6vw, 2.8rem);
+	font-weight: 700;
+	letter-spacing: -0.04em;
+	line-height: 1;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.prj-cover-title span {
+	background: linear-gradient(135deg, var(--accent-a), var(--accent-b));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+.prj-cover-rule {
+	width: 36px;
+	height: 1px;
+	background: linear-gradient(90deg, var(--accent-a), var(--accent-b));
+}
+
+.prj-cover-author {
+	font-size: clamp(0.48rem, 0.88vw, 0.6rem);
+	font-weight: 300;
+	letter-spacing: 0.22em;
+	text-transform: uppercase;
+	color: var(--fg-dimmer);
+}
+
+.prj-back-icon {
+	font-size: clamp(1.2rem, 2.8vw, 2rem);
+	background: linear-gradient(135deg, var(--accent-a), var(--accent-b));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+.prj-back-title {
+	font-size: clamp(0.9rem, 2.2vw, 1.6rem);
+	font-weight: 600;
+	letter-spacing: -0.02em;
+	color: var(--fg-dim);
+	text-align: center;
+	text-transform: uppercase;
+	line-height: 1.3;
+}
+
+.prj-back-rule {
+	width: 36px;
+	height: 1px;
+	background: linear-gradient(90deg, var(--accent-a), var(--accent-b));
+	margin: 0 auto;
+}
+
+.prj-back-sub {
+	font-size: clamp(0.46rem, 0.82vw, 0.56rem);
+	font-weight: 300;
+	letter-spacing: 0.22em;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.14);
+	text-align: center;
+}
+
+#flipbook .page-wrapper {
+	background: transparent !important;
+	border: none !important;
+}
+
+#flipbook .page {
+	background: transparent !important;
+	border: none !important;
+	overflow: visible !important;
+}
+
+.prj-spread-page {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.prj-leaf-left,
+.prj-leaf-right {
+    flex: 0 0 50%;
+    max-width: 50%;
+    height: 100%;
+    box-sizing: border-box;
+	position: relative;
+}
+
+.prj-left-inner {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(12px, 2.2vw, 22px);
+    padding: clamp(18px, 3.2vw, 36px);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+	.prj-book {
+		width: 95vw;
+		height: 60vw;
+		min-height: 190px;
+	}
+	.prj-progress {
+		right: 8px;
+	}
+	#btnPrev,
+	#btnNext {
+		padding: 5px 10px;
+	}
+}
