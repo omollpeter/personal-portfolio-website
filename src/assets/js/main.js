@@ -13,7 +13,7 @@ import { initContact } from './landing/contact.js';
 import { hideLoader } from './components/common.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    // hideLoader();
+    hideLoader();
     
     initHeroAbout();
     initProjects();
@@ -21,5 +21,5 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 window.addEventListener("load", () => {
-    // hideLoader();
+    hideLoader();
 });

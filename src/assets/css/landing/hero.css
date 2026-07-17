@@ -18,24 +18,10 @@
 	padding: 28px 40px;
 }
 
-.hero-nav-brand {
-	display: flex;
-	flex-direction: column;
-	gap: 2px;
-}
-
-.hero-nav-name {
-	font-size: 15px;
-	font-weight: 600;
-	letter-spacing: -0.01em;
-	color: var(--fg);
-}
-
-.hero-nav-title {
-	font-size: 11px;
-	font-weight: 300;
-	color: var(--fg-dim);
-	letter-spacing: 0.04em;
+.hero-nav-logo {
+	height: 64px;
+	width: auto;
+	display: block;
 }
 
 .hero-nav-links {
@@ -521,6 +507,10 @@
 @media (max-width: 768px) {
 	.hero-nav {
 		padding: 22px 24px;
+	}
+
+	.hero-nav-logo {
+		height: 64px;
 	}
 
 	.hero-nav-links {
